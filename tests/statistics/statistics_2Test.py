@@ -29,7 +29,7 @@ def after():
 		pass
 
   
-@t.test(0)
+@t.test(10)
 def correctPercentageTwoSamples(test):
 	def testMethod():
 		output = lib.outputOf(
@@ -44,3 +44,9 @@ def correctPercentageTwoSamples(test):
 	test.description = lambda : "prints the correct percentage of deviating samples for N = 2"
 
   # add tests for three, five, ten and hundred samples
+
+
+@t.test(20)
+def showsGraph(test):
+	test.test = lambda : assertlib.fileContainsFunctionCalls(_fileName, "savefig") or assertlib.fileContainsFunctionCalls(_fileName, "show")
+	test.description = lambda : "either saves or shows (at least) one plot"
